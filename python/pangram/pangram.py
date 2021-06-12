@@ -1,8 +1,10 @@
+import string
+
 def is_pangram(sentence):
     if not isinstance(sentence, str):
-        raise Exception('argument "sentence" must be of type "str"')
+        raise TypeError('argument "sentence" must be of type "str"')
 
-    return all(letter in sentence.lower() for letter in 'abcdefghijklmnopqrstuvwxyz')
+    return all(letter in sentence.lower() for letter in string.ascii_lowercase)
 
     # stillPangram = True
 
@@ -11,4 +13,3 @@ def is_pangram(sentence):
     #         stillPangram = False
 
     # return stillPangram
-    
