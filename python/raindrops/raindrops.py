@@ -1,10 +1,10 @@
 def convert(number):
     if not isinstance(number, int):
-        raise Exception('the argument "number" must be of type "int"')
+        raise TypeError('the argument "number" must be of type "int"')
 
-    dropDivisors = {3: 'Pling', 5: 'Plang', 7: 'Plong'}
+    drop_divisors = {3: 'Pling', 5: 'Plang', 7: 'Plong'}
 
-    return ''.join(drop for divisor, drop in dropDivisors.items() 
+    return ''.join(drop for divisor, drop in drop_divisors.items() 
         if number % divisor == 0) or str(number)
 
     # str1 = 'Pling' if (number % 3 == 0) else ''
