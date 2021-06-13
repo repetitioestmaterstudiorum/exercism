@@ -2,27 +2,28 @@ def latest(scores):
     return scores[-1]
 
 def personal_best(scores):
+    return max(scores)
     # return sorted(scores, reverse=True)[0]
-    best = float('-inf')
-    for s in scores:
-        if s > best:
-            best = s
-    return best if best != float('-inf') else []
+    # best = float('-inf')
+    # for s in scores:
+    #     if s > best:
+    #         best = s
+    # return best if best != float('-inf') else []
 
 def personal_top_three(scores):
-    # return sorted(scores, reverse=True)[:3]
-    high_scores = {1: float('-inf'), 2: float('-inf'), 3: float('-inf')}
-    for s in scores:
-        if s > high_scores[1]:
-            high_scores[3] = high_scores[2]
-            high_scores[2] = high_scores[1]
-            high_scores[1] = s
-        elif s > high_scores[2]:
-            high_scores[3] = high_scores[2]
-            high_scores[2] = s
-        elif s > high_scores[3]:
-            high_scores[3] = s
-    return list(score for score in high_scores.values() if score != float('-inf')) or []
+    return sorted(scores, reverse=True)[:3]
+    # high_scores = {1: float('-inf'), 2: float('-inf'), 3: float('-inf')}
+    # for s in scores:
+    #     if s > high_scores[1]:
+    #         high_scores[3] = high_scores[2]
+    #         high_scores[2] = high_scores[1]
+    #         high_scores[1] = s
+    #     elif s > high_scores[2]:
+    #         high_scores[3] = high_scores[2]
+    #         high_scores[2] = s
+    #     elif s > high_scores[3]:
+    #         high_scores[3] = s
+    # return list(score for score in high_scores.values() if score != float('-inf')) or []
 
 # dev tests
 l = [1, 2, 0, 4, 5, 2, 3, 4]
