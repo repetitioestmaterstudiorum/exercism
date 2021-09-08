@@ -1,0 +1,1 @@
+gcc -lstdc++ cpp/version-test/cpp_version.cpp -o cpp/version-test/cpp_version_executable
