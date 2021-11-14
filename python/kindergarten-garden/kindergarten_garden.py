@@ -29,8 +29,8 @@ class Garden:
 #         return [{'V': 'Violets', 'R': 'Radishes', 'C': 'Clover', 'G': 'Grass'}[x] for x in self.plant_sets[self.students.index(plant_owner)]]
 
 # --- quick tests
-# garden = Garden("RC\nGG")
-# print(garden.plants('Alice')) # ["Radishes", "Clover", "Grass", "Grass"]
+garden = Garden("RC\nGG")
+print(garden.plants('Alice')) # ["Radishes", "Clover", "Grass", "Grass"]
 #
-# garden = Garden("VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV")
-# print(garden.plants("Larry")) # ['Grass', 'Violets', 'Clover', 'Violets']
+garden = Garden("VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV")
+print(garden.plants("Larry")) # ['Grass', 'Violets', 'Clover', 'Violets']
