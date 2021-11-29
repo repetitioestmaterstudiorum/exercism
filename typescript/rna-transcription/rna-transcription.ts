@@ -1,21 +1,19 @@
 export function toRna(dna: string): string {
-	const nucleotides: string[] = dna.split('')
+	type DnaNucleotides = 'G' | 'C' | 'T' | 'A'
+	type RnaNucleotides = 'C' | 'G' | 'A' | 'U'
 
-	// throw error if input data invalid (=not all values in dnaRnaTranscription dict)
-	if (!nucleotides.every(n => Object.keys(dnaRnaTranscription).includes(n))) {
-		throw new Error('Invalid input DNA.')
+	const DnaRnaTranscription: Record<DnaNucleotides, RnaNucleotides> = {
+		'G': 'C',
+		'C': 'G',
+		'T': 'A',
+		'A': 'U',
 	}
 
-	return nucleotides.map(n => dnaRnaTranscription[n]).join('')
-}
-
-const dnaRnaTranscription: DnaRnaTranscription = {
-	'G': 'C',
-	'C': 'G',
-	'T': 'A',
-	'A': 'U',
-}
-
-type DnaRnaTranscription = {
-	[key: string]: string
+	return dna
+		.split('')
+		.map(n => {
+			if (!(n in DnaRnaTranscription)) throw new Error('Invalid input DNA.')
+			return DnaRnaTranscription[n as DnaNucleotides]
+		})
+		.join('')
 }
