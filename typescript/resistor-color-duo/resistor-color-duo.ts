@@ -17,14 +17,9 @@ export function decodedValue([firstColor, secondColor]: ColorEncodingStrings[]):
 	return +`${ColorEncoding[firstColor]}${ColorEncoding[secondColor]}`
 }
 
-// version with object rather than enum
-
-// export function decodedValue(colors: string[]): number {
-// 	interface ColorEncoding {
-// 		[key: string]: number
-// 	}
-
-// 	const colorEncoding: ColorEncoding = {
+// version with an object as dictionary rather than enum
+// export function decodedValue([firstColor, secondColor]: string[]): number {
+// 	const colorEncoding: { [color: string]: number } = {
 // 		black: 0,
 // 		brown: 1,
 // 		red: 2,
@@ -37,8 +32,5 @@ export function decodedValue([firstColor, secondColor]: ColorEncodingStrings[]):
 // 		white: 9,
 // 	}
 
-// 	return +colors
-// 		.map((color, i) => (i < 2 ? colorEncoding[color] : null))
-// 		.filter(x => x !== null)
-// 		.join('')
+// 	return +`${colorEncoding[firstColor]}${colorEncoding[secondColor]}`
 // }
