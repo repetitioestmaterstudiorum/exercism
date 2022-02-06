@@ -2,5 +2,4 @@
 **/.exercism
 **/__pycache__
 node_modules
-cpp-temp
 cpp
