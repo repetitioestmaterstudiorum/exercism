@@ -1,18 +1,17 @@
 export class Matrix {
-	private matrix: number[][] = new Array()
+	public readonly rows: number[][]
+	public readonly columns: number[][]
 
-	constructor(inputMatrix: string) {
-		// convert input matrix (string) into array of arrays matrix
-		this.matrix = inputMatrix.split('\n').map(row => row.split(' ').map(x => +x))
+	constructor(readonly inputMatrix: string) {
+		// convert input matrix (string) into array of arrays rows and columns matrixes
+		this.rows = inputMatrix.split('\n').map(row => row.split(' ').map(x => +x))
+		// one-time transposition of matrix
+		this.columns = this.transpose(this.rows)
 	}
 
-	get rows() {
-		return this.matrix
-	}
-
-	get columns() {
-		return this.matrix
-			.map((_, i) => this.matrix.map((_, j) => this.matrix[j][i]).filter(x => x))
+	private transpose(rows: number[][]): number[][] {
+		return rows
+			.map((_, i) => this.rows.map((_, j) => this.rows[j][i]).filter(x => x))
 			.filter(x => x.length)
 	}
 }
